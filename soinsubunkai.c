@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void){
-    int a, i;
+    int a, i, j;
     int nanjo[1000];
     int count;
     int sosu[25]={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
@@ -19,19 +19,18 @@ int main(void){
         count++;
     }
 
-    if(nanjo[0] > 1){
-        printf("%d^%d", sosu[0], nanjo[0]);
-    }
-    else if(nanjo[0] == 1){
-        printf("%d", sosu[0]);
-    }
-
-    for(i = 1;i < count;i++){
-        if(nanjo[i] > 1){
-            printf(" × %d^%d", sosu[i], nanjo[i]);
+    for(j = 0;j < count;j++){
+        if(nanjo[j] > 1){
+            printf("%d^%d", sosu[j], nanjo[j]);
+            if(j != i - 1){
+                printf(" * ");
+            }
         }
-        else if(nanjo[i] == 1){
-            printf(" × %d", sosu[i]);
+        else if(nanjo[j] == 1){
+            printf("%d", sosu[j]);
+            if(j != i - 1){
+                printf(" * ");
+            }
         }
     }
     
